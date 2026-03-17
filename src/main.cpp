@@ -1,21 +1,18 @@
-#include <Arduino.h>
+
 #include <driver/i2s.h> //for the ics43434 mic
 
-#define LED_PIN 2 //no LED rightnow lol
+#include <Arduino.h>
 
 void setup() {
-  Serial.begin(115200);
-  pinMode(LED_PIN, OUTPUT);
-  Serial.println("ESP32 Initialized in PlatformIO!");
-  Serial.println("\n--- NEW UPLOAD V1.0 EXECUTING ---");
+  // Use a lower baud rate just in case the data pins are struggling
+  Serial.begin(9600); 
+  delay(2000); 
+  Serial.println("\n\n---STARTING---");
 }
 
 void loop() {
-  digitalWrite(LED_PIN, HIGH);
-  Serial.println("LED ON");
-  delay(1000);
-
-  digitalWrite(LED_PIN, LOW);
-  Serial.println("LED OFF");
-  delay(1000);
+  // We use a long delay to keep power consumption as low as possible
+  Serial.print("Uptime (ms): ");
+  Serial.println(millis());
+  delay(2000); 
 }
