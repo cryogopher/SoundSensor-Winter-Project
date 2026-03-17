@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <driver/i2s.h> //for the ics43434 mic
 
-#define LED_PIN 2
+#define LED_PIN 2 //no LED rightnow lol
 
 void setup() {
   Serial.begin(115200);
