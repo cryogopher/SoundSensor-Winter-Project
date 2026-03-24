@@ -1,18 +1,27 @@
-
-#include <driver/i2s.h> //for the ics43434 mic
-
 #include <Arduino.h>
 
+// GPIO 2 is the standard internal LED for Freenove WROOM boards
+#define BUILTIN_LED 2 
+#include "SD_Helper.h" //import the code for the sdcard reading
+
 void setup() {
-  // Use a lower baud rate just in case the data pins are struggling
-  Serial.begin(9600); 
-  delay(2000); 
-  Serial.println("\n\n---STARTING---");
+  Serial.begin(115200);
+  pinMode(BUILTIN_LED, OUTPUT);
+  Serial.println("--- Freenove Standard LED Test ---");
+  
+  if (initSDCard()) {
+        logToSD("/startup.txt", "System rebooted at " + String(millis()));
+    }
 }
 
 void loop() {
-  // We use a long delay to keep power consumption as low as possible
-  Serial.print("Uptime (ms): ");
-  Serial.println(millis());
-  delay(2000); 
+  Serial.println("LED ON");
+  digitalWrite(BUILTIN_LED, HIGH);
+  
+  static unsigned long lastUpdate = 0;
+    if (millis() - lastUpdate > 10000) {
+        int dummySoundLevel = random(0, 100); 
+        logToSD("/data.csv", String(millis()) + "," + String(dummySoundLevel));
+        lastUpdate = millis();
+    }
 }
