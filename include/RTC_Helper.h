@@ -1,43 +1,32 @@
 #ifndef RTC_HELPER_H
 #define RTC_HELPER_H
 
-#include <ThreeWire.h>  
+#include <ThreeWire.h>
 #include <RtcDS1302.h>
+#include <sys/time.h>
 
-//define Pins
-#define RTC_IO 26
-#define RTC_SCLK 25
-#define RTC_CE 27
-
-ThreeWire myWire(RTC_IO, RTC_SCLK, RTC_CE); 
+// Pins from your groupmate's code
+ThreeWire myWire(26, 25, 27); 
 RtcDS1302<ThreeWire> Rtc(myWire);
 
 void initRTC() {
     Rtc.Begin();
-
-    //check if the RTC is running (if the battery died, it stops)
-    if (!Rtc.GetIsRunning()) {
-        Serial.println("RTC was not actively running, starting now...");
-        Rtc.SetIsRunning(true);
-    }
-
-    // This sets the RTC to the time this code was compiled
-    RtcDateTime compiled = RtcDateTime(__DATE__, __TIME__);
-    Rtc.SetDateTime(compiled);
-    Serial.println("RTC Initialized and Time Set.");
+    if (!Rtc.GetIsRunning()) Rtc.SetIsRunning(true);
+    Rtc.SetIsWriteProtected(false);
 }
 
-String getTimestamp() {
+// Fixes the 1990 date issue by syncing RTC to ESP32 system time
+void syncSystemTime() {
     RtcDateTime now = Rtc.GetDateTime();
-    char datestring[20];
-
-    snprintf_P(datestring, 
-            countof(datestring),
-            PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
-            now.Month(), now.Day(), now.Year(),
-            now.Hour(), now.Minute(), now.Second());
-    
-    return String(datestring);
+    struct tm tm;
+    tm.tm_year = now.Year() - 1900;
+    tm.tm_mon = now.Month() - 1;
+    tm.tm_mday = now.Day();
+    tm.tm_hour = now.Hour();
+    tm.tm_min = now.Minute();
+    tm.tm_sec = now.Second();
+    time_t t = mktime(&tm);
+    struct timeval now_tv = { .tv_sec = t };
+    settimeofday(&now_tv, NULL);
 }
-
 #endif
