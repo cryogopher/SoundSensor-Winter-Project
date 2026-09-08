@@ -10,7 +10,7 @@ to map the soundscape in order to aid with research.
     <li>ESP-32 WROOM</li>
     <li>ICS-43434 Microphone </li>
     <li>MircoSD Module (FAT32)</li>
-    <li>DS1203 Real-TimeClock/li>
+    <li>DS1203 Real-TimeClock </li>
   </ul>
 </p>
 
@@ -23,6 +23,8 @@ to map the soundscape in order to aid with research.
     <li>VsCode</li>
   </ul>
 </p>
+
+<!-- Mention features and caption images -->
 
 <h2>Image Gallery: </h2>
 ![final board](https://github.com/user-attachments/assets/1220865c-7567-4531-85c7-3258e17a5402)
