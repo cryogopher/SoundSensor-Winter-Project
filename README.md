@@ -27,6 +27,17 @@ to map the soundscape in order to aid with research.
 <!-- Mention features and caption images -->
 
 <h2>Image Gallery: </h2>
-![final board](https://github.com/user-attachments/assets/1220865c-7567-4531-85c7-3258e17a5402)
-<img width="1376" height="892" alt="Screenshot 2026-04-06 091410" src="https://github.com/user-attachments/assets/280eecdf-f40c-404f-8e3d-dff9f26a19a9" />
-<img width="1448" height="2573" alt="image" src="https://github.com/user-attachments/assets/083dc5ab-a605-4838-8ed7-7f47d01b6d2d" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1220865c-7567-4531-85c7-3258e17a5402" width="600" alt="Physical Circuit Board" />
+    <figcaption><b>Acoustic Sound Sensor:</b> Physical Circuit Board</figcaption>
+  </figure>
+  <figure align="center">
+    <img src="https://github.com/user-attachments/assets/1220865c-7567-4531-85c7-3258e17a5402" width="600" alt="Physical Circuit Board" />
+    <figcaption><b>Acoustic Sound Sensor:</b> Physical Circuit Board</figcaption>
+  </figure>
+  <br/>
+  <figure align="center">
+    <img src="https://github.com/user-attachments/assets/280eecdf-f40c-404f-8e3d-dff9f26a19a9" width="600" alt="Close-up of Key Components" />
+    <figcaption><b>Close-up of Key Components</b></figcaption>
+  </figure>
+</p>
