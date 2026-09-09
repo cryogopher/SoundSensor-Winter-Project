@@ -25,19 +25,8 @@ to map the soundscape in order to aid with research.
 </p>
 
 <!-- Mention features and caption images -->
-
 <h2>Image Gallery: </h2>
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/1220865c-7567-4531-85c7-3258e17a5402" width="600" alt="Physical Circuit Board" />
-    <figcaption><b>Acoustic Sound Sensor:</b> Physical Circuit Board</figcaption>
-  </figure>
-  <figure align="center">
+    <img width="2880" height="2160" alt="showcase" src="https://github.com/user-attachments/assets/6937329b-c1f4-4b85-88a6-9fb87be35ba2" />
     <img src="https://github.com/user-attachments/assets/1220865c-7567-4531-85c7-3258e17a5402" width="600" alt="Physical Circuit Board" />
-    <figcaption><b>Acoustic Sound Sensor:</b> Physical Circuit Board</figcaption>
-  </figure>
-  <br/>
-  <figure align="center">
     <img src="https://github.com/user-attachments/assets/280eecdf-f40c-404f-8e3d-dff9f26a19a9" width="600" alt="Close-up of Key Components" />
-    <figcaption><b>Close-up of Key Components</b></figcaption>
-  </figure>
 </p>
